@@ -9,24 +9,31 @@ public class MainChallenge {
 
 int finalScore= score;
 
-if (gameOver){
-    finalScore+=(levelCompleted * bonus);
-    System.out.println("Your final score was " + finalScore);
-}//End if
-
- //Disadvantage of below is that it duplicates code, so open to errors, or a missed update if the original is changed
+calculateScore(gameOver,score,levelCompleted, bonus);
 
 score = 10_000;
 levelCompleted = 8;
-bonus= 200;
-finalScore= score;
+bonus = 200;
 
-if (gameOver){
-    finalScore+= (levelCompleted * bonus);
-    System.out.println("Your final score was " + finalScore);
-}
-
+ //Disadvantage of below is that it duplicates code, so open to errors, or a missed update if the original is changed
+ calculateScore(true,10000, 8, 200);
 
 
     }//end main void
+
+
+public static void calculateScore(boolean gameOver, int score, int levelCompleted, int bonus) {
+
+        int finalScore= score;
+
+        if (gameOver){
+            finalScore+=(levelCompleted * bonus);
+            finalScore+= 1000;
+            System.out.println("Your final score was " + finalScore);
+        }//End if
+
+}//end method calculateScore
+
+
+
 }//End class main
