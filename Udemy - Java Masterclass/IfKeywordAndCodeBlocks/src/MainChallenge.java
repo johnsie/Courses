@@ -9,29 +9,33 @@ public class MainChallenge {
 
 int finalScore= score;
 
-calculateScore(gameOver,score,levelCompleted, bonus);
+        int highScore= calculateScore(gameOver,score,levelCompleted, bonus);
+        System.out.println("The high score is " + highScore);
 
 score = 10_000;
 levelCompleted = 8;
 bonus = 200;
 
  //Disadvantage of below is that it duplicates code, so open to errors, or a missed update if the original is changed
- calculateScore(true,10000, 8, 200);
+
+ System.out.println("The next highscore is " +
+         calculateScore(true,10000, 8, 200));
 
 
     }//end main void
 
 
-public static void calculateScore(boolean gameOver, int score, int levelCompleted, int bonus) {
+public static int calculateScore(boolean gameOver, int score, int levelCompleted, int bonus) {
 
         int finalScore= score;
 
         if (gameOver){
             finalScore+=(levelCompleted * bonus);
             finalScore+= 1000;
-            System.out.println("Your final score was " + finalScore);
+
         }//End if
 
+    return finalScore;
 }//end method calculateScore
 
 
